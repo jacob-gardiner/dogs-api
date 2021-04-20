@@ -12,11 +12,7 @@ beforeEach(function () use ($dogCount) {
 });
 
 
-it('likes dags', function () {
-    $response = $this->get(route('dogs.index'));
-
-    $response->assertStatus(200);
-});
+it('likes dags')->get('/api/dogs')->assertStatus(200)->assertJsonCount(50);
 
 it('returns all dogs go to heaven in a descending order', function () use  ($dogCount) {
 
